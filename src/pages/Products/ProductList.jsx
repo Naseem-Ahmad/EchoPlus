@@ -6,8 +6,12 @@ export default function ProductList() {
   const [items, setItems] = useState([]);
 
   const loadProducts = async () => {
-    const res = await api.get("/product");
-    setItems(res.data);
+    try {
+      const res = await api.get("/product");
+      setItems(res.data);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
   };
 
   useEffect(() => {
@@ -17,15 +21,21 @@ export default function ProductList() {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this product?")) return;
 
-    await api.delete(`/product/${id}`);
-    loadProducts();
+    try {
+      await api.delete(`/product/${id}`);
+      loadProducts();
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   return (
     <div>
       <div className="d-flex justify-content-between mb-3">
         <h3>Product List</h3>
-        <Link className="btn btn-primary" to="/products/add">Add Product</Link>
+        <Link className="btn btn-primary" to="/products/add">
+          Add Product
+        </Link>
       </div>
 
       <table className="table table-bordered">
@@ -64,7 +74,6 @@ export default function ProductList() {
             </tr>
           ))}
         </tbody>
-
       </table>
     </div>
   );
