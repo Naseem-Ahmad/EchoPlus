@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../../api/axios";
+import "../../styles/editProduct.css"; // <-- IMPORT CSS
 
 export default function EditProduct() {
   const { id } = useParams();
@@ -19,7 +20,6 @@ export default function EditProduct() {
       setPrice(res.data.price);
       setQuantity(res.data.quantity);
     };
-
     load();
   }, [id]);
 
@@ -39,24 +39,29 @@ export default function EditProduct() {
   };
 
   return (
-    <div className="col-md-6">
-      <h3>Edit Product</h3>
-      <div className="card p-3 mt-2">
+    <div className="edit-wrapper">
+      <div className="edit-card">
+
+        <h3 className="edit-title">Edit Product</h3>
 
         <form onSubmit={handleSubmit}>
-          <input className="form-control mb-2" value={name}
+          <label className="form-label">Product Name</label>
+          <input className="form-control mb-3" value={name}
             onChange={(e) => setName(e.target.value)} />
 
-          <input className="form-control mb-2" value={description}
+          <label className="form-label">Description</label>
+          <input className="form-control mb-3" value={description}
             onChange={(e) => setDescription(e.target.value)} />
 
-          <input type="number" className="form-control mb-2" value={price}
+          <label className="form-label">Price</label>
+          <input type="number" className="form-control mb-3" value={price}
             onChange={(e) => setPrice(e.target.value)} />
 
-          <input type="number" className="form-control mb-3" value={quantity}
+          <label className="form-label">Quantity</label>
+          <input type="number" className="form-control mb-4" value={quantity}
             onChange={(e) => setQuantity(e.target.value)} />
 
-          <button className="btn btn-warning w-100">Update Product</button>
+          <button className="update-btn">Update Product</button>
         </form>
 
       </div>

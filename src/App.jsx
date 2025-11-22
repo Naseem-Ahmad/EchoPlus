@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import ProductList from "./pages/Products/ProductList";
 import AddProduct from "./pages/Products/AddProduct";
 import EditProduct from "./pages/Products/EditProduct";
-
+import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
 
           {/* Public Routes */}
           <Route path="/" element={<Login />} />
+           <Route path="/register" element={<Register />} />
 
           {/* Protected Routes */}
           <Route

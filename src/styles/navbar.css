@@ -1,0 +1,51 @@
+.custom-nav {
+  background: linear-gradient(135deg, #4c6ef5, #228be6);
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.app-name {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-nav button {
+  border-radius: 8px !important;
+  padding: 6px 14px;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+}
+
+.custom-nav .btn-outline-primary {
+  border: 1px solid #e7f5ff;
+  color: #ffffff;
+}
+
+.custom-nav .btn-outline-primary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-nav .btn-primary {
+  background: #fff;
+  color: #1c7ed6;
+  border: none;
+}
+
+.custom-nav .btn-primary:hover {
+  background: #e7f5ff;
+}
+
+.custom-nav .btn-danger {
+  background: #ff4b4b;
+  border-color: #ff4b4b;
+}
+
+.custom-nav .btn-danger:hover {
+  background: #e03131;
+}

@@ -3,33 +3,33 @@ import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await api.post("/auth/login", { email, password });
-      localStorage.setItem("token", res.data.token);
-      navigate("/dashboard");
+      await api.post("/auth/register", { email, password });
+      alert("Registration successful! Now login.");
+      navigate("/");
     } catch (err) {
-      alert("Invalid credentials");
+      alert("Registration failed");
     }
   };
 
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h3 className="auth-title">Login</h3>
+        <h3 className="auth-title">Create Account</h3>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleRegister}>
           <input
             type="email"
             className="form-control mb-3"
-            placeholder="Enter email"
+            placeholder="Email address"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -37,18 +37,18 @@ export default function Login() {
           <input
             type="password"
             className="form-control mb-3"
-            placeholder="Password"
+            placeholder="Create password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
 
           <button className="btn btn-primary w-100 auth-btn">
-            Login
+            Register
           </button>
         </form>
 
         <p className="auth-bottom-text">
-          Don't have an account? <a href="/register">Register</a>
+          Already have an account? <a href="/">Login</a>
         </p>
       </div>
     </div>

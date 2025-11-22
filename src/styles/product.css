@@ -1,0 +1,109 @@
+/* Main container */
+.product-container {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1e1e2f;
+}
+
+/* Add button */
+.add-product-btn {
+  background: linear-gradient(135deg, #4c6ef5, #228be6);
+  border: none;
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+.add-product-btn:hover {
+  background: linear-gradient(135deg, #3b5bdb, #1c7ed6);
+  color: #fff;
+}
+
+/* Table wrapper */
+.product-table-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+/* Table */
+.product-table {
+  margin: 0 !important;
+  border-collapse: collapse;
+}
+
+.product-table thead {
+  background: linear-gradient(135deg, #4c6ef5, #228be6);
+  color: white;
+}
+
+.product-table th,
+.product-table td {
+  padding: 14px 18px !important;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.product-table tbody tr:hover {
+  background: #eef4ff;
+}
+
+/* Buttons */
+.btn-edit {
+  background: #ffbf00;
+  color: #473c00;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin-right: 10px;
+  transition: 0.2s;
+}
+
+.btn-edit:hover {
+  background: #e6ac00;
+}
+
+.btn-delete {
+  background: #ff4b4b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background: #e03131;
+}
+
+/* Empty state */
+.empty-message {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 15px;
+  color: #888;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

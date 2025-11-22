@@ -1,31 +1,42 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../styles/navbar.css";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem("token");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/"); // redirect to login
+    navigate("/");
   };
 
-  const isLoggedIn = !!localStorage.getItem("token");
-
   return (
-    <nav className="navbar navbar-dark bg-dark px-3">
-      <Link className="navbar-brand" to="/dashboard">
-        My App
-      </Link>
+    <nav className="navbar custom-nav shadow-sm px-4">
+      <span className="navbar-brand app-name" style={{ color: "white" }} onClick={() => navigate("/dashboard")}>
+        Echo Plus
+      </span>
 
-      <div className="d-flex align-items-center">
+      <div>
+        {!isLoggedIn && (
+          <>
+            <button className="btn btn-outline-primary me-2" onClick={() => navigate("/")}>
+              Login
+            </button>
+            <button className="btn btn-primary" onClick={() => navigate("/register")}>
+              Register
+            </button>
+          </>
+        )}
+
         {isLoggedIn && (
           <>
-            <Link className="btn btn-outline-light me-3" to="/dashboard">
+            <button className="btn btn-outline-primary me-3" onClick={() => navigate("/dashboard")}>
               Dashboard
-            </Link>
+            </button>
 
-            <Link className="btn btn-outline-light me-2" to="/products">
+            <button className="btn btn-outline-primary me-3" onClick={() => navigate("/products")}>
               Products
-            </Link>
+            </button>
 
             <button className="btn btn-danger" onClick={handleLogout}>
               Logout

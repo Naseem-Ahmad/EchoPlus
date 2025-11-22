@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../api/axios";
+import "../../styles/addProduct.css"; // <-- NEW CSS FILE
 
 export default function AddProduct() {
   const [name, setName] = useState("");
@@ -25,26 +26,48 @@ export default function AddProduct() {
   };
 
   return (
-    <div className="col-md-6">
-      <h3>Add Product</h3>
+    <div className="add-wrapper">
+      <div className="add-card">
 
-      <div className="card p-3 mt-2">
+        <h3 className="add-title">Add Product</h3>
+
         <form onSubmit={handleSubmit}>
 
-          <input className="form-control mb-2" placeholder="Product Name"
-            value={name} onChange={(e) => setName(e.target.value)} />
+          <label className="form-label">Product Name</label>
+          <input
+            className="form-control mb-3"
+            placeholder="Enter product name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-          <input className="form-control mb-2" placeholder="Description"
-            value={description} onChange={(e) => setDescription(e.target.value)} />
+          <label className="form-label">Description</label>
+          <input
+            className="form-control mb-3"
+            placeholder="Enter description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
 
-          <input type="number" className="form-control mb-2" placeholder="Price"
-            value={price} onChange={(e) => setPrice(e.target.value)} />
+          <label className="form-label">Price</label>
+          <input
+            type="number"
+            className="form-control mb-3"
+            placeholder="Enter price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
 
-          <input type="number" className="form-control mb-3" placeholder="Quantity"
-            value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+          <label className="form-label">Quantity</label>
+          <input
+            type="number"
+            className="form-control mb-4"
+            placeholder="Enter quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
 
-          <button className="btn btn-primary w-100">Add Product</button>
-
+          <button className="add-btn">Add Product</button>
         </form>
       </div>
     </div>

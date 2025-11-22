@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../api/axios";
+import "../../styles/product.css";
 
 export default function ProductList() {
   const [items, setItems] = useState([]);
@@ -30,51 +31,61 @@ export default function ProductList() {
   };
 
   return (
-    <div>
-      <div className="d-flex justify-content-between mb-3">
-        <h3>Product List</h3>
-        <Link className="btn btn-primary" to="/products/add">
-          Add Product
+    <div className="product-container">
+      <div className="product-header">
+        <h3 className="product-title">Products</h3>
+        <Link className="btn add-product-btn" to="/products/add">
+          + Add Product
         </Link>
       </div>
 
-      <table className="table table-bordered">
-        <thead className="table-dark">
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th style={{ width: "80px" }}>Price</th>
-            <th style={{ width: "80px" }}>Qty</th>
-            <th style={{ width: "150px" }}>Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {items.map((p) => (
-            <tr key={p.id}>
-              <td>{p.name}</td>
-              <td>{p.description}</td>
-              <td>${p.price}</td>
-              <td>{p.quantity}</td>
-              <td>
-                <Link
-                  to={`/products/edit/${p.id}`}
-                  className="btn btn-sm btn-warning me-2"
-                >
-                  Edit
-                </Link>
-
-                <button
-                  onClick={() => handleDelete(p.id)}
-                  className="btn btn-sm btn-danger"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="product-table-wrapper">
+        <table className="table product-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {items.map((p) => (
+              <tr key={p.id}>
+                <td>{p.name}</td>
+                <td>{p.description}</td>
+                <td>${p.price}</td>
+                <td>{p.quantity}</td>
+                <td>
+                  <Link
+                    to={`/products/edit/${p.id}`}
+                    className="btn btn-edit"
+                  >
+                    Edit
+                  </Link>
+
+                  <button
+                    onClick={() => handleDelete(p.id)}
+                    className="btn btn-delete"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+
+            {items.length === 0 && (
+              <tr>
+                <td colSpan="5" className="empty-message">
+                  No products found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
