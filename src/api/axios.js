@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://localhost:7080/api",  // your API
+  baseURL: "https://determined-rejoicing-production.up.railway.app/api",  // your API
 });
 
 // Automatically attach token
