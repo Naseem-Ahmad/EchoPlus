@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // remove JWT
+    localStorage.removeItem("token");
     navigate("/"); // redirect to login
   };
 
@@ -12,14 +12,21 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-dark bg-dark px-3">
-      <a className="navbar-brand" href="/dashboard">My App</a>
+      <Link className="navbar-brand" to="/dashboard">
+        My App
+      </Link>
 
       <div className="d-flex align-items-center">
-
         {isLoggedIn && (
           <>
-            <a className="btn btn-outline-light me-3" href="/dashboard">Dashboard</a>
-            <a className="btn btn-outline-light me-2" href="/products">Products</a>
+            <Link className="btn btn-outline-light me-3" to="/dashboard">
+              Dashboard
+            </Link>
+
+            <Link className="btn btn-outline-light me-2" to="/products">
+              Products
+            </Link>
+
             <button className="btn btn-danger" onClick={handleLogout}>
               Logout
             </button>
