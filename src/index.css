@@ -1,6 +1,6 @@
 /* Center page */
 .auth-page {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +15,16 @@ html, body {
   padding: 0;
 }
 
+.auth-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.11);
+}
+
+body {
+  background: #f6f7fb;
+}
 
 /* Card */
 .auth-card {

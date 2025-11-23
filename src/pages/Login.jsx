@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import WeatherWidget from "../components/WeatherWidget";
 
 
 export default function Login() {
@@ -21,7 +22,12 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-page">
+    <>
+    <div className="col-md-2">
+      <WeatherWidget />
+    </div>
+
+        <div className="auth-page">
       <div className="auth-card">
         <h3 className="auth-title">Login</h3>
 
@@ -51,6 +57,8 @@ export default function Login() {
           Don't have an account? <a href="/register">Register</a>
         </p>
       </div>
-    </div>
+    </div>   
+  </>
+
   );
 }
