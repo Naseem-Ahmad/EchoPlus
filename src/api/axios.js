@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "magnificent-creation-production.up.railway.app/api",  // your API https://determined-rejoicing-production.up.railway.app/ https://localhost:7080/api
+  baseURL: "https://magnificent-creation-production.up.railway.app/api",  // your API https://determined-rejoicing-production.up.railway.app/ https://localhost:7080/api
   
 });
 
